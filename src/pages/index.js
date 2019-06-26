@@ -2,8 +2,13 @@ import styled from "styled-components";
 
 const Container = styled.div`
   text-align: center;
-  background-color: deepskyblue;
-  padding: 50px;
+  background-image: url("/static/board.jpg");
+  background-repeat: repeat;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 const Button = styled.a`
@@ -16,10 +21,11 @@ const Button = styled.a`
   display: inline-block;
   color: white;
   cursor: pointer;
+  text-decoration-line: none;
 `;
 
 const Title = styled.h1`
-  color: bisque;
+  color: #003366;
 `;
 
 const Home = () => (

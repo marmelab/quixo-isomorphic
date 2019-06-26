@@ -14,3 +14,6 @@ start: ## Start project
 
 test: ## Launch the project's tests
 	@echo "Launch the tests"
+
+stop:
+	docker-compose down
