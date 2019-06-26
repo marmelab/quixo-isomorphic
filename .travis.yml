@@ -1,5 +1,5 @@
-language: minimal
+language: nodejs
 before_script:
-- make install
+  - make install
 script:
-- make test
+  - make test
