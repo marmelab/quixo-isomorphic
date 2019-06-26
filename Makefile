@@ -19,5 +19,9 @@ test: ## Launch the project's tests
 	docker-compose run --rm \
 		quixo-react-next npm run test
 
+lint:
+	docker-compose run --rm \
+		quixo-react-next npm run lint
+
 stop:
 	docker-compose down
