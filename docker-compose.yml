@@ -11,3 +11,4 @@ services:
       - ./src:/quixo-react
     working_dir: /quixo-react
     command: npm run dev
+    user: "${UID}:${GID}"
