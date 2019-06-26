@@ -1,4 +1,3 @@
-import Link from "next/link";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -26,9 +25,7 @@ const Title = styled.h1`
 const Home = () => (
   <Container>
     <Title>Quixo game with React & NextJS !</Title>
-    <Link href="/game">
-      <Button>New Game !</Button>
-    </Link>
+    <Button href="/game">New Game !</Button>
   </Container>
 );
 
