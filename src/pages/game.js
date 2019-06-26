@@ -30,7 +30,7 @@ const Game = ({ board }) => (
     {board.map((row, x) => (
       <Row key={`row-${x}`}>
         {row.map((value, y) => (
-          <Cube key={`cube-${x}-${y}`}>
+          <Cube key={`cube-${x}-${y}`} title={`cube-${x}-${y}`}>
             <CubeImage src={"/static/neutral.png"} />
           </Cube>
         ))}

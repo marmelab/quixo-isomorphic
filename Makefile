@@ -13,7 +13,8 @@ start: ## Start project
 	docker-compose up -d
 
 test: ## Launch the project's tests
-	@echo "Launch the tests"
+	docker-compose run --rm \
+		quixo-react-next npm run test
 
 stop:
 	docker-compose down
