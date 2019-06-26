@@ -1,4 +1,4 @@
-import Document from "next/document";
+import Document, { Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
@@ -25,5 +25,23 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+  render() {
+    return (
+      <html style={{ height: "100%" }}>
+        <Head>
+          <style>
+            {`
+            #__next { height: 100% }
+          `}
+          </style>
+          {this.props.styleTags}
+        </Head>
+        <body style={{ height: "100%", margin: 0 }}>
+          <Main />
+          <NextScript />
+        </body>
+      </html>
+    );
   }
 }

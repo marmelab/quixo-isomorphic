@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
 const Board = styled.div`
-  text-align: center;
   width: 100%;
-  height: 70%;
+  height: 100%;
   background-image: url("/static/board.jpg");
   background-size: 100% 100%;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 const Row = styled.div`
-  text-align: center;
+  flex-direction: row;
+  display: flex;
 `;
 
 const Cube = styled.div`
@@ -24,19 +26,17 @@ const CubeImage = styled.img`
 `;
 
 const Game = ({ board }) => (
-  <div>
-    <Board>
-      {board.map((row, x) => (
-        <Row key={`row-${x}`}>
-          {row.map((value, y) => (
-            <Cube key={`cube-${x}-${y}`}>
-              <CubeImage src={"/static/neutral.png"} />
-            </Cube>
-          ))}
-        </Row>
-      ))}
-    </Board>
-  </div>
+  <Board>
+    {board.map((row, x) => (
+      <Row key={`row-${x}`}>
+        {row.map((value, y) => (
+          <Cube key={`cube-${x}-${y}`}>
+            <CubeImage src={"/static/neutral.png"} />
+          </Cube>
+        ))}
+      </Row>
+    ))}
+  </Board>
 );
 
 Game.getInitialProps = async ({ req }) => {
