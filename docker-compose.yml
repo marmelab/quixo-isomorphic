@@ -12,3 +12,8 @@ services:
     working_dir: /quixo-react
     command: npm run dev
     user: "${UID}:${GID}"
+
+networks:
+  default:
+    external:
+      name: network-quixo
