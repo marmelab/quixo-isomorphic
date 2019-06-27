@@ -10,18 +10,18 @@ help:
 
 install: ## Install project's dependencies
 	docker-compose run --rm \
-		quixo-react-next npm install
+		quixo-react-next yarn
 
 start: ## Start project
 	docker-compose up -d
 
 test: ## Launch the project's tests
 	docker-compose run --rm \
-		quixo-react-next npm run test
+		quixo-react-next yarn test
 
 lint:
 	docker-compose run --rm \
-		quixo-react-next npm run lint
+		quixo-react-next yarn lint
 
 stop:
 	docker-compose down
