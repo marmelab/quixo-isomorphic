@@ -1,0 +1,14 @@
+version: "3.2"
+
+services:
+  quixo-react-next:
+    image: node:12.4.0-stretch
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+    volumes:
+      - ./src:/quixo-react
+    working_dir: /quixo-react
+    command: npm run dev
+    user: "${UID}:${GID}"

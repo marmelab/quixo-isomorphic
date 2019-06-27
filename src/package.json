@@ -1,0 +1,57 @@
+{
+    "name": "quixo-isomorphic",
+    "version": "1.0.0",
+    "description": "Quixo game with react isomorphic",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start",
+        "test": "jest",
+        "lint": "eslint --fix .",
+        "precommit": "lint-staged"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/marmelab/quixo-isomorphic.git"
+    },
+    "keywords": [
+        "quixo",
+        "react",
+        "next.js"
+    ],
+    "author": "Pierre h",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/marmelab/quixo-isomorphic/issues"
+    },
+    "homepage": "https://github.com/marmelab/quixo-isomorphic#readme",
+    "dependencies": {
+        "isomorphic-unfetch": "3.0.0",
+        "next": "8.1.0",
+        "react": "16.8.6",
+        "react-dom": "16.8.6",
+        "styled-components": "4.3.2"
+    },
+    "devDependencies": {
+        "@testing-library/react": "8.0.4",
+        "babel-eslint": "10.0.2",
+        "babel-plugin-styled-components": "1.10.2",
+        "eslint": "5.16.0",
+        "eslint-config-prettier": "6.0.0",
+        "eslint-plugin-import": "2.18.0",
+        "eslint-plugin-jest": "22.7.1",
+        "eslint-plugin-prettier": "3.1.0",
+        "eslint-plugin-react": "7.14.2",
+        "husky": "^2.6.0",
+        "jest": "24.8.0",
+        "lint-staged": "^8.2.1",
+        "prettier": "1.18.2"
+    },
+    "lint-staged": {
+        "*.js": [
+            "eslint --fix",
+            "git add"
+        ]
+    }
+}
