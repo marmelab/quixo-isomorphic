@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 import { CIRCLE_VALUE, NEUTRAL_VALUE } from '../constants/game';
 
@@ -33,6 +35,12 @@ const Instructions = ({ team, isPlaying, winner }) => {
             <InstructionText>{isPlaying ? 'Your turn !' : 'Waiting for the opponent...'}</InstructionText>
         </InstructionContainer>
     );
+};
+
+Instructions.propTypes = {
+    team: PropTypes.number.isRequired,
+    isPlaying: PropTypes.bool.isRequired,
+    winner: PropTypes.number,
 };
 
 const InstructionContainer = styled.div`

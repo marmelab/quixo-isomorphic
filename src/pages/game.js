@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer } from 'react';
 import styled from 'styled-components';
 import Router from 'next/router';
+import PropTypes from 'prop-types';
 
 import { getNewGame, getExistingGame, getMyTeam } from '../apiRequests';
 import Instructions from '../components/Instructions';
@@ -84,6 +85,11 @@ Game.getInitialProps = async ({ query, res }) => {
     const game = id ? await getExistingGame(id) : await createGameAndRedirect(res);
     const { team } = await getMyTeam(game.id);
     return { initGame: game, myTeam: team };
+};
+
+Game.propTypes = {
+    initGame: PropTypes.object.isRequired,
+    myTeam: PropTypes.number.isRequired,
 };
 
 const Board = styled.div`

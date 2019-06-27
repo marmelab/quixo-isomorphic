@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import { CIRCLE_VALUE, CROSS_VALUE } from '../constants/game';
 
@@ -27,6 +28,14 @@ const Cube = ({ isMovable, handlePressCube, isSelected, isWinning, value }) => {
             {image}
         </StyledCube>
     );
+};
+
+Cube.propTypes = {
+    isMovable: PropTypes.bool.isRequired,
+    handlePressCube: PropTypes.func.isRequired,
+    isWinning: PropTypes.bool.isRequired,
+    value: PropTypes.number.isRequired,
+    isSelected: PropTypes.bool,
 };
 
 const getBorder = ({ isMovable, isWinning }) => {
