@@ -6,6 +6,9 @@ env:
 node_js:
   - "12"
 
+before_install:
+  - docker create network network-quixo
+
 before_script:
   - make install
 
