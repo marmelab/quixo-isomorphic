@@ -1,7 +1,5 @@
 import fetch from 'isomorphic-unfetch';
-import { SERVER_API_HOST, CLIENT_API_HOST } from '../constants/api';
-
-const getHost = () => (process.browser ? CLIENT_API_HOST : SERVER_API_HOST);
+import { API_HOST } from '../constants/api';
 
 const postOptions = {
     method: 'POST',
@@ -12,22 +10,22 @@ const postOptions = {
 };
 
 export const getNewGame = async () => {
-    const response = await fetch(`${getHost()}/new-game`);
+    const response = await fetch(`${API_HOST}/new-game`);
     return await response.json();
 };
 
 export const getExistingGame = async id => {
-    const response = await fetch(`${getHost()}/get-game/${id}`);
+    const response = await fetch(`${API_HOST}/get-game/${id}`);
     return await response.json();
 };
 
 export const getMovables = async id => {
-    const response = await fetch(`${getHost()}/movables/${id}`);
+    const response = await fetch(`${API_HOST}/movables/${id}`);
     return await response.json();
 };
 
 export const postSelectCube = async ({ id, x, y }) => {
-    const response = await fetch(`${getHost()}/select-cube`, {
+    const response = await fetch(`${API_HOST}/select-cube`, {
         ...postOptions,
         body: JSON.stringify({ id, x, y }),
     });
@@ -35,7 +33,7 @@ export const postSelectCube = async ({ id, x, y }) => {
 };
 
 export const postMoveCube = async ({ id, x, y }) => {
-    const response = await fetch(`${getHost()}/move-cube`, {
+    const response = await fetch(`${API_HOST}/move-cube`, {
         ...postOptions,
         body: JSON.stringify({ id, x, y }),
     });
@@ -43,11 +41,11 @@ export const postMoveCube = async ({ id, x, y }) => {
 };
 
 export const getMyTeam = async id => {
-    const response = await fetch(`${getHost()}/assign-me-team/${id}`);
+    const response = await fetch(`${API_HOST}/assign-me-team/${id}`);
     return await response.json();
 };
 
 export const getNewGameVsAi = async () => {
-    const response = await fetch(`${getHost()}/new-game-ai`);
+    const response = await fetch(`${API_HOST}/new-game-ai`);
     return await response.json();
 };

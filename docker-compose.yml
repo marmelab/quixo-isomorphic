@@ -12,8 +12,6 @@ services:
     working_dir: /quixo-react
     command: npm run dev
     user: "${UID}:${GID}"
-
-networks:
-  default:
-    external:
-      name: network-quixo
+    network_mode: host
+    environment:
+      YARN_CACHE_FOLDER: /quixo-react/.yarn

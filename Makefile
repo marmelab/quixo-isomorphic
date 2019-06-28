@@ -19,6 +19,9 @@ test: ## Launch the project's tests
 	docker-compose run --rm \
 		quixo-react-next yarn test
 
+logs:
+	docker-compose logs -f
+
 lint:
 	docker-compose run --rm \
 		quixo-react-next yarn lint
