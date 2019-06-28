@@ -27,7 +27,6 @@ const registerHooks = (game, dispatch) => {
 
 const Game = ({ initGame, myTeam }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
-
     const { game: stateGame, movables } = state;
     const game = (stateGame.id && stateGame) || initGame;
 
@@ -52,12 +51,13 @@ const Game = ({ initGame, myTeam }) => {
                     {row.map((value, y) => (
                         <Cube
                             key={`cube-${x}-${y}`}
-                            title={`cube-${x}-${y}`}
                             isMovable={isMovable(x, y)}
                             isSelected={isSelected(x, y)}
                             isWinning={isWinning(x, y)}
                             handlePressCube={handlePressCube(x, y)}
                             value={value}
+                            x={x}
+                            y={y}
                         />
                     ))}
                 </Row>
