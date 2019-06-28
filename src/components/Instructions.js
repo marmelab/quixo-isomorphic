@@ -43,6 +43,10 @@ Instructions.propTypes = {
     winner: PropTypes.number,
 };
 
+Instructions.defaultProps = {
+    winner: null,
+};
+
 const InstructionContainer = styled.div`
     height: 25%;
     display: flex;

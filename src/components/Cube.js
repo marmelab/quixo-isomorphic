@@ -8,15 +8,11 @@ const CIRCLE_SRC = '/static/circle.png';
 const CROSS_SRC = '/static/cross.png';
 const NEUTRAL_SRC = 'static/neutral.png';
 
-const getLogo = value => {
-    if (value === CIRCLE_VALUE) {
-        return CIRCLE_SRC;
-    }
-    if (value === CROSS_VALUE) {
-        return CROSS_SRC;
-    }
-    return NEUTRAL_SRC;
-};
+const getLogo = value =>
+    ({
+        [CIRCLE_VALUE]: CIRCLE_SRC,
+        [CROSS_VALUE]: CROSS_SRC,
+    }[value] || NEUTRAL_SRC);
 
 const Cube = ({ isMovable, handlePressCube, isSelected, isWinning, value }) => {
     const logo = getLogo(value);
@@ -31,11 +27,18 @@ const Cube = ({ isMovable, handlePressCube, isSelected, isWinning, value }) => {
 };
 
 Cube.propTypes = {
-    isMovable: PropTypes.bool.isRequired,
-    handlePressCube: PropTypes.func.isRequired,
-    isWinning: PropTypes.bool.isRequired,
+    isMovable: PropTypes.bool,
+    handlePressCube: PropTypes.func,
+    isWinning: PropTypes.bool,
     value: PropTypes.number.isRequired,
     isSelected: PropTypes.bool,
+};
+
+Cube.defaultProps = {
+    isMovable: false,
+    handlePressCube: () => {},
+    isWinning: false,
+    isSelected: false,
 };
 
 const getBorder = ({ isMovable, isWinning }) => {

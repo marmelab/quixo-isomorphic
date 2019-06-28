@@ -39,7 +39,7 @@ const Game = ({ initGame, myTeam }) => {
 
     const isPlaying = isMyTurn(myTeam, currentPlayer);
     const isSelected = isSelectedCube(selectedCube);
-    const isMovable = !winner ? isInMovables(movables) : () => false;
+    const isMovable = isPlaying && !winner ? isInMovables(movables) : () => false;
     const isWinning = isWinningCube(winningLine);
 
     registerHooks(game, dispatch);
@@ -82,7 +82,10 @@ const createGameAndRedirect = async res => {
 
 Game.getInitialProps = async ({ query, res }) => {
     const { id } = query;
-    const game = id ? await getExistingGame(id) : await createGameAndRedirect(res);
+    if (!id) {
+        return createGameAndRedirect(res);
+    }
+    const game = await getExistingGame(id);
     const { team } = await getMyTeam(game.id);
     return { initGame: game, myTeam: team };
 };
