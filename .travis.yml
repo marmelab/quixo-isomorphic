@@ -16,3 +16,7 @@ script:
 branches:
   only:
     - master
+
+cache:
+    directories:
+        - src/.npm/
