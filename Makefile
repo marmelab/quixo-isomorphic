@@ -22,6 +22,9 @@ test: ## Launch the project's tests
 logs:
 	docker-compose logs -f
 
+logs:
+	docker-compose logs -f
+
 lint:
 	docker-compose run --rm \
 		quixo-react-next npm run lint
