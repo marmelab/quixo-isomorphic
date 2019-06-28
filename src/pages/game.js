@@ -54,7 +54,7 @@ const Game = ({ initGame, myTeam }) => {
                             isMovable={isMovable(x, y)}
                             isSelected={isSelected(x, y)}
                             isWinning={isWinning(x, y)}
-                            handlePressCube={handlePressCube(x, y)}
+                            handlePress={isMovable(x, y) ? handlePressCube(x, y) : null}
                             value={value}
                             x={x}
                             y={y}

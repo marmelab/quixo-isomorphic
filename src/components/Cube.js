@@ -19,11 +19,10 @@ const getLogo = value =>
 
 const Cube = props => {
     const testId = getTestId(props);
-    const { isMovable, handlePressCube, isSelected, isWinning, value } = props;
+    const { isMovable, handlePress, isSelected, isWinning, value } = props;
     const logo = getLogo(value);
     const image = !isSelected ? <CubeImage src={logo} /> : null;
 
-    const handlePress = isMovable ? handlePressCube : () => {};
     return (
         <StyledCube isMovable={isMovable} isWinning={isWinning} onClick={handlePress} data-testid={testId}>
             {image}
@@ -33,7 +32,7 @@ const Cube = props => {
 
 Cube.propTypes = {
     isMovable: PropTypes.bool,
-    handlePressCube: PropTypes.func,
+    handlePress: PropTypes.func,
     isWinning: PropTypes.bool,
     value: PropTypes.number.isRequired,
     isSelected: PropTypes.bool,
@@ -41,7 +40,7 @@ Cube.propTypes = {
 
 Cube.defaultProps = {
     isMovable: false,
-    handlePressCube: () => {},
+    handlePress: () => {},
     isWinning: false,
     isSelected: false,
 };
