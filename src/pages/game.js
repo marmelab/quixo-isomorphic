@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Router from 'next/router';
 import PropTypes from 'prop-types';
 
-import { getNewGame, getExistingGame, getMyTeam } from '../apiRequests';
+import { getNewGame, getExistingGame, getMyTeam, getNewGameVsAi } from '../apiRequests';
 import Instructions from '../components/Instructions';
 import Cube from '../components/Cube';
 import { reducer, initialState } from '../game/reducer';
@@ -66,8 +66,8 @@ const Game = ({ initGame, myTeam }) => {
     );
 };
 
-const createGameAndRedirect = async res => {
-    const game = await getNewGame();
+const createGameAndRedirect = async (res, solo) => {
+    const game = solo ? await getNewGameVsAi() : await getNewGame();
     const href = `/game?id=${game.id}`;
     if (res) {
         res.writeHead(302, {
@@ -81,9 +81,9 @@ const createGameAndRedirect = async res => {
 };
 
 Game.getInitialProps = async ({ query, res }) => {
-    const { id } = query;
+    const { id, solo } = query;
     if (!id) {
-        return createGameAndRedirect(res);
+        return createGameAndRedirect(res, solo);
     }
     const game = await getExistingGame(id);
     const { team } = await getMyTeam(game.id);
