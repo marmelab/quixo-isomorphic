@@ -7,9 +7,11 @@
         "dev": "next",
         "build": "next build",
         "start": "next start",
+        "start-prod": "next start -p 80",
         "test": "jest",
         "lint": "eslint --fix .",
-        "precommit": "lint-staged"
+        "precommit": "lint-staged",
+        "deploy": "now"
     },
     "repository": {
         "type": "git",
@@ -44,9 +46,9 @@
         "eslint-plugin-jest": "22.7.1",
         "eslint-plugin-prettier": "3.1.0",
         "eslint-plugin-react": "7.14.2",
-        "husky": "^2.6.0",
+        "husky": "2.6.0",
         "jest": "24.8.0",
-        "lint-staged": "^8.2.1",
+        "lint-staged": "8.2.1",
         "prettier": "1.18.2"
     },
     "lint-staged": {
