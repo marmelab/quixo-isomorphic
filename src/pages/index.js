@@ -24,6 +24,7 @@ const Button = styled.a`
     color: white;
     cursor: pointer;
     text-decoration-line: none;
+    margin: 10px;
 `;
 
 const Title = styled.h1`
@@ -35,6 +36,9 @@ const Home = () => (
         <Title>Quixo game with React & NextJS !</Title>
         <Link href="/game" passHref>
             <Button>New Game !</Button>
+        </Link>
+        <Link href="/game?solo=true" passHref>
+            <Button>New Game vs AI !</Button>
         </Link>
     </Container>
 );
