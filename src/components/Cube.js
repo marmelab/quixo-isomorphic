@@ -9,7 +9,7 @@ const CROSS_SRC = '/static/cross.png';
 const NEUTRAL_SRC = 'static/neutral.png';
 
 // for tests purposes
-const getTitle = ({ x, y, value, isMovable, isWinning }) => `cube-${x}-${y}-${value}-${isMovable}-${isWinning}`;
+const getTestId = ({ x, y, value, isMovable, isWinning }) => `cube-${x}-${y}-${value}-${isMovable}-${isWinning}`;
 
 const getLogo = value =>
     ({
@@ -18,14 +18,14 @@ const getLogo = value =>
     }[value] || NEUTRAL_SRC);
 
 const Cube = props => {
-    const title = getTitle(props);
+    const testId = getTestId(props);
     const { isMovable, handlePressCube, isSelected, isWinning, value } = props;
     const logo = getLogo(value);
     const image = !isSelected ? <CubeImage src={logo} /> : null;
 
     const handlePress = isMovable ? handlePressCube : () => {};
     return (
-        <StyledCube isMovable={isMovable} isWinning={isWinning} onClick={handlePress} title={title}>
+        <StyledCube isMovable={isMovable} isWinning={isWinning} onClick={handlePress} data-testid={testId}>
             {image}
         </StyledCube>
     );
