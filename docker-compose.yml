@@ -14,4 +14,4 @@ services:
     user: "${UID}:${GID}"
     network_mode: host
     environment:
-      YARN_CACHE_FOLDER: /quixo-react/.yarn
+      NPM_CONFIG_CACHE: /quixo-react/.npm
