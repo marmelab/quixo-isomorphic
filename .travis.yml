@@ -1,6 +1,22 @@
-language: nodejs
+language:  node_js
+
+env:
+  - DOCKER_COMPOSE_VERSION=1.21.2
+
+node_js:
+  - "12"
+
 before_script:
   - make install
+
 script:
   - make lint
   - make test
+
+branches:
+  only:
+    - master
+
+cache:
+    directories:
+        - src/.npm/

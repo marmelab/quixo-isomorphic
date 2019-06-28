@@ -12,3 +12,6 @@ services:
     working_dir: /quixo-react
     command: npm run dev
     user: "${UID}:${GID}"
+    network_mode: host
+    environment:
+      NPM_CONFIG_CACHE: /quixo-react/.npm
