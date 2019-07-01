@@ -1,0 +1,9 @@
+version: "3.2"
+
+services:
+  api:
+    command: npm run start-prod
+    ports:
+      - "80:80"
+    expose:
+      - "80"

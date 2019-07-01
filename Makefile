@@ -28,3 +28,17 @@ lint:
 
 stop:
 	docker-compose down
+
+server-start:
+	docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+
+deploy:
+	git archive -o quixo.zip HEAD
+	scp -i $(key) quixo.zip $(ssh):~/quixo.zip
+	ssh -i $(key) $(ssh) ' \
+		unzip -uo ~/quixo.zip -d ~/quixo; \
+		rm -f quixo.zip; \
+		cd ~/quixo; \
+		make install && make server-start; \
+	'
+	rm -f quixo.zip
