@@ -79,3 +79,12 @@ export const getCurrentGames = async () => {
     const response = await fetch(`${API_HOST}/get-games/${getPseudo()}`);
     return await response.json();
 };
+
+export const createGameWithFriend = async pseudo2 => {
+    const pseudo1 = getPseudo();
+    const response = await fetch(`${API_HOST}/create-game-friends`, {
+        ...postOptions,
+        body: JSON.stringify({ pseudo1, pseudo2 }),
+    });
+    return await response.json();
+};

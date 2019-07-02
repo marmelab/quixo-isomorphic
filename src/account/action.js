@@ -1,5 +1,5 @@
 import Cookies from 'universal-cookie';
-import { createAccount, getAccount } from '../apiRequests';
+import { createAccount, getAccount, createGameWithFriend } from '../apiRequests';
 import { UPDATE_ACCOUNT } from './constants';
 
 export const createAccountCall = async signPseudo => {
@@ -20,4 +20,9 @@ export const getAccountFromCookies = dispatch => () => {
     if (pseudo) {
         getAccountCall(pseudo);
     }
+};
+
+export const createGameWithFriendCall = async pseudo => {
+    const { id } = await createGameWithFriend(pseudo);
+    return id;
 };

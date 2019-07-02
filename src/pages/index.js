@@ -48,6 +48,9 @@ const Home = () => (
         <Link href="/currentgames" passHref>
             <Button>My current games</Button>
         </Link>
+        <Link href="/invitefriend" passHref>
+            <Button>Invite a friend</Button>
+        </Link>
     </Container>
 );
 
