@@ -36,14 +36,14 @@ const Home = () => (
     <Container>
         <Account />
         <Title>Quixo game with React & NextJS !</Title>
-        <Link href="/newaccount" passHref>
-            <Button>Create account !</Button>
-        </Link>
         <Link href="/game" passHref>
-            <Button>New Game !</Button>
+            <Button>New Game</Button>
         </Link>
         <Link href="/game?solo=true" passHref>
-            <Button>New Game vs AI !</Button>
+            <Button>New Game vs AI</Button>
+        </Link>
+        <Link href="/leaderboard" passHref>
+            <Button>Leaderboard</Button>
         </Link>
     </Container>
 );

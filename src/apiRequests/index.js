@@ -64,7 +64,13 @@ export const createAccount = async pseudo => {
     });
     return await response.json();
 };
+
 export const getAccount = async pseudo => {
     const response = await fetch(`${API_HOST}/get-player/${pseudo}`);
+    return await response.json();
+};
+
+export const getLeaderboard = async () => {
+    const response = await fetch(`${API_HOST}/get-leaderboard`);
     return await response.json();
 };

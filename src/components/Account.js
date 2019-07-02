@@ -14,20 +14,30 @@ const Account = () => {
     return (
         <div>
             <Greetings>
-                {pseudo}: {won} game won / {played} game played
+                {pseudo ? (
+                    <Text>
+                        {pseudo}: {won} game won / {played} game played
+                    </Text>
+                ) : (
+                    <Link href="/newaccount" passHref>
+                        <Button>Create account</Button>
+                    </Link>
+                )}
             </Greetings>
             <Link href="/" passHref>
-                <Button>Home</Button>
+                <HomeButton>Home</HomeButton>
             </Link>
         </div>
     );
 };
 
-const Greetings = styled.h4`
+const Greetings = styled.div`
     position: absolute;
     left: 0;
     top: 0;
-    margin: 10px;
+`;
+
+const Text = styled.h4`
     color: #003366;
 `;
 
@@ -43,10 +53,14 @@ const Button = styled.a`
     cursor: pointer;
     text-decoration-line: none;
     margin: 10px;
+
+    text-align: center;
+`;
+
+const HomeButton = styled(Button)`
     position: absolute;
     right: 0;
     top: 0;
-    text-align: center;
 `;
 
 export default Account;
