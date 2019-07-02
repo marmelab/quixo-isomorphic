@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import Router from 'next/router';
 import PropTypes from 'prop-types';
 
-import { getNewGame, getExistingGame, getMyTeam, getNewGameVsAi } from '../apiRequests';
 import Instructions from '../components/Instructions';
 import Cube from '../components/Cube';
+import Account from '../components/Account';
+
+import { getNewGame, getExistingGame, getMyTeam, getNewGameVsAi } from '../apiRequests';
 import { reducer, initialState } from '../game/reducer';
 import { refreshGame, fetchMovables, moveCube, selectCube } from '../game/actions';
 
@@ -45,6 +47,7 @@ const Game = ({ initGame, myTeam }) => {
 
     return (
         <Board>
+            <Account />
             <Instructions team={myTeam} isPlaying={isPlaying} winner={winner} />
             {board.map((row, x) => (
                 <Row key={`row-${x}`}>

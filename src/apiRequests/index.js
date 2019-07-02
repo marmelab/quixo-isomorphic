@@ -1,5 +1,12 @@
 import fetch from 'isomorphic-unfetch';
 import { API_HOST } from '../constants/api';
+import Cookies from 'universal-cookie';
+
+const getPseudo = () => {
+    const cookies = new Cookies();
+    const pseudo = cookies.get('pseudo');
+    return pseudo;
+};
 
 const postOptions = {
     method: 'POST',
@@ -41,7 +48,7 @@ export const postMoveCube = async ({ id, x, y }) => {
 };
 
 export const getMyTeam = async id => {
-    const response = await fetch(`${API_HOST}/assign-me-team/${id}`);
+    const response = await fetch(`${API_HOST}/assign-me-team/${id}/${getPseudo()}`);
     return await response.json();
 };
 

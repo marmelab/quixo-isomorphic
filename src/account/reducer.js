@@ -2,7 +2,7 @@ import { UPDATE_ACCOUNT } from './constants';
 
 export const initialState = {
     pseudo: '',
-    win: '',
+    won: '',
     played: '',
 };
 
