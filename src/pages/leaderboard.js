@@ -31,24 +31,28 @@ const Leaderboard = ({ leaderboard }) => {
         <Container>
             <Account />
             <LeaderboardTable>
-                <tr>
-                    <th>Pseudo</th>
-                    <th>Played</th>
-                    <th>Win</th>
-                </tr>
-                {leaderboard.map(({ pseudo, played, won }, index) => (
-                    <tr key={`leader-${index}`}>
-                        <td>
-                            <Text>{pseudo}</Text>
-                        </td>
-                        <td>
-                            <Text>{played}</Text>
-                        </td>
-                        <td>
-                            <Text>{won}</Text>
-                        </td>
+                <thead>
+                    <tr>
+                        <th>Pseudo</th>
+                        <th>Played</th>
+                        <th>Win</th>
                     </tr>
-                ))}
+                </thead>
+                <tbody>
+                    {leaderboard.map(({ pseudo, played, won }, index) => (
+                        <tr key={`leader-${index}`}>
+                            <td>
+                                <Text>{pseudo}</Text>
+                            </td>
+                            <td>
+                                <Text>{played}</Text>
+                            </td>
+                            <td>
+                                <Text>{won}</Text>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
             </LeaderboardTable>
         </Container>
     );

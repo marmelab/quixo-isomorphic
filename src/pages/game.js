@@ -10,6 +10,13 @@ import Account from '../components/Account';
 import { getNewGame, getExistingGame, getMyTeam, getNewGameVsAi } from '../apiRequests';
 import { reducer, initialState } from '../game/reducer';
 import { refreshGame, fetchMovables, moveCube, selectCube } from '../game/actions';
+import Cookies from 'universal-cookie';
+
+const getPseudo = () => {
+    const cookies = new Cookies();
+    const pseudo = cookies.get('pseudo');
+    return pseudo;
+};
 
 const isMyTurn = (myTeam, currentPlayer) => myTeam === currentPlayer;
 
@@ -27,10 +34,22 @@ const registerHooks = (game, dispatch) => {
     useEffect(fetchMovables(id, dispatch), [currentPlayer]);
 };
 
+const getTeam = ({ player1, player2 }) => {
+    const pseudo = getPseudo();
+    if (player1.pseudo === pseudo) {
+        return player1.team;
+    }
+    if (player2.pseudo === pseudo) {
+        return player2.team;
+    }
+    return 0;
+};
+
 const Game = ({ initGame, myTeam }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const { game: stateGame, movables } = state;
     const game = (stateGame.id && stateGame) || initGame;
+    const team = myTeam === 0 ? getTeam(game) : myTeam;
 
     const { id, board, currentPlayer, winner, selectedCube, winningLine } = game;
 
@@ -38,7 +57,7 @@ const Game = ({ initGame, myTeam }) => {
         ? (x, y) => () => moveCube(id, dispatch)({ x, y })
         : (x, y) => () => selectCube(id, dispatch)({ x, y });
 
-    const isPlaying = isMyTurn(myTeam, currentPlayer);
+    const isPlaying = isMyTurn(team, currentPlayer);
     const isSelected = isSelectedCube(selectedCube);
     const isMovable = isPlaying && !winner ? isInMovables(movables) : () => false;
     const isWinning = isWinningCube(winningLine);
@@ -48,7 +67,7 @@ const Game = ({ initGame, myTeam }) => {
     return (
         <Board>
             <Account />
-            <Instructions team={myTeam} isPlaying={isPlaying} winner={winner} />
+            <Instructions team={team} isPlaying={isPlaying} winner={winner} />
             {board.map((row, x) => (
                 <Row key={`row-${x}`}>
                     {row.map((value, y) => (

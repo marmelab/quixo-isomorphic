@@ -45,6 +45,9 @@ const Home = () => (
         <Link href="/leaderboard" passHref>
             <Button>Leaderboard</Button>
         </Link>
+        <Link href="/currentgames" passHref>
+            <Button>My current games</Button>
+        </Link>
     </Container>
 );
 

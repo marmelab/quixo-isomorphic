@@ -74,3 +74,8 @@ export const getLeaderboard = async () => {
     const response = await fetch(`${API_HOST}/get-leaderboard`);
     return await response.json();
 };
+
+export const getCurrentGames = async () => {
+    const response = await fetch(`${API_HOST}/get-games/${getPseudo()}`);
+    return await response.json();
+};
