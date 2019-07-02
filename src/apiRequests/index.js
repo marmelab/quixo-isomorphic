@@ -49,3 +49,15 @@ export const getNewGameVsAi = async () => {
     const response = await fetch(`${API_HOST}/new-game-ai`);
     return await response.json();
 };
+
+export const createAccount = async pseudo => {
+    const response = await fetch(`${API_HOST}/signup`, {
+        ...postOptions,
+        body: JSON.stringify({ pseudo }),
+    });
+    return await response.json();
+};
+export const getAccount = async pseudo => {
+    const response = await fetch(`${API_HOST}/get-player/${pseudo}`);
+    return await response.json();
+};
