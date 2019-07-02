@@ -2,8 +2,8 @@ import { UPDATE_ACCOUNT } from './constants';
 
 export const initialState = {
     pseudo: '',
-    won: '',
-    played: '',
+    won: 0,
+    played: 0,
 };
 
 export const reducer = (state, action) => {

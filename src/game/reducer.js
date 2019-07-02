@@ -16,11 +16,6 @@ export const initialState = {
     },
     movables: [],
     myTeam: NEUTRAL_VALUE,
-    account: {
-        pseudo: 'anonymous',
-        win: 0,
-        played: 0,
-    },
 };
 
 export const reducer = (state, action) => {
