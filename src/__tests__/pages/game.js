@@ -17,6 +17,12 @@ const mockGame = ({ id, board, currentPlayer, winner, selectedCube, winningLine 
     winner,
     selectedCube,
     winningLine,
+    player1: {
+        team: NEUTRAL_VALUE,
+    },
+    player2: {
+        team: NEUTRAL_VALUE,
+    },
 });
 
 describe('GamePage tests', () => {
