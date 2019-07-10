@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
+import Account from '../components/Account';
 
 const Container = styled.div`
     text-align: center;
@@ -33,12 +34,22 @@ const Title = styled.h1`
 
 const Home = () => (
     <Container>
+        <Account />
         <Title>Quixo game with React & NextJS !</Title>
         <Link href="/game" passHref>
-            <Button>New Game !</Button>
+            <Button>New Game</Button>
         </Link>
         <Link href="/game?solo=true" passHref>
-            <Button>New Game vs AI !</Button>
+            <Button>New Game vs AI</Button>
+        </Link>
+        <Link href="/leaderboard" passHref>
+            <Button>Leaderboard</Button>
+        </Link>
+        <Link href="/currentgames" passHref>
+            <Button>My current games</Button>
+        </Link>
+        <Link href="/invitefriend" passHref>
+            <Button>Invite a friend</Button>
         </Link>
     </Container>
 );
